@@ -11,9 +11,9 @@ def fizz():
 fizz()
 
 # Write a program that runs through an ordered list of numbers (1-100) and 
-# for each multiple of 3 prints We, 
-# for each multiple of 7 prints Work. 
-# If it's multiple of both 3 & 7, print WeWork. 
+# for each multiple of 3 prints Fizz, 
+# for each multiple of 7 prints Buzz. 
+# If it's multiple of both 3 & 7, print FizzBuzz. 
 # Otherwise print the number itself
 # Sample output:
 # 1
