@@ -1,15 +1,3 @@
-def fizz():
-    for x in range(1, 100):
-        if (x % 3 == 0) and (x % 7 == 0):
-            print("FizzBuzz")
-        elif x % 3 == 0:
-            print("Fizz")
-        elif x % 7 == 0:
-            print("Buzz")
-        else: 
-            print(x)
-fizz()
-
 # Write a program that runs through an ordered list of numbers (1-100) and 
 # for each multiple of 3 prints Fizz, 
 # for each multiple of 7 prints Buzz. 
@@ -38,3 +26,15 @@ fizz()
 # 20
 # FizzBuzz
 # 22
+
+def fizz():
+    for x in range(1, 100):
+        if (x % 3 == 0) and (x % 7 == 0):
+            print("FizzBuzz")
+        elif x % 3 == 0:
+            print("Fizz")
+        elif x % 7 == 0:
+            print("Buzz")
+        else: 
+            print(x)
+fizz()
