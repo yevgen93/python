@@ -7,7 +7,7 @@ def fizz():
         elif x % 7 == 0:
             print("Buzz")
         else: 
-            print x
+            print(x)
 fizz()
 
 # Write a program that runs through an ordered list of numbers (1-100) and 
