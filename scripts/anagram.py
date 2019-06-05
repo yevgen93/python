@@ -1,5 +1,13 @@
 # Given an input of two strings, write a method to determine if the two strings are anagrams 
 # (composed of the same set of letters) of each other. Letter uppercase/lowercase state is ignored.
+# Sample inputs:
+# isAnagramMatch("melon", "lemon") => true
+# isAnagramMatch("ocean", "canoe") => true
+# isAnagramMatch("battle", "tablet") => true
+# isAnagramMatch("reserve", "reverse") => true
+# isAnagramMatch("bob", "rob") => false
+# isAnagramMatch("tape", "tap") => false
+
 def isAnagramMatch(str1, str2):
     if len(str1) != len(str2):
         return False

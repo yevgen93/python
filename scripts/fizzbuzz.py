@@ -1,8 +1,8 @@
 # Write a program that runs through an ordered list of numbers (1-100) and 
-# for each multiple of 3 prints Fizz, 
-# for each multiple of 7 prints Buzz. 
+# for each multiple of 3 prints Fizz and for each multiple of 7 prints Buzz. 
 # If it's multiple of both 3 & 7, print FizzBuzz. 
 # Otherwise print the number itself
+
 # Sample output:
 # 1
 # 2
@@ -38,3 +38,30 @@ def fizz():
         else: 
             print(x)
 fizz()
+
+
+# BENHAMS SOLUTION
+class Solution {
+  public static void main(String[] args) {
+    for(int i=0; i < 100; i++){
+      printFizzBuzz(i);
+    }
+  }
+  
+  public static void printFizzBuzz(int n){
+    if(n % 3 == 0 && n % 7 == 0){
+      System.out.println("FizzBuzz");
+      return;
+    }
+    if(n % 3 == 0){
+      System.out.println("Fizz");
+      return;
+    }
+    if(n % 7 == 0){
+      System.out.println("Buzz");
+      return;
+    }
+    System.out.println(n);
+  }
+  
+}
