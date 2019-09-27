@@ -8,21 +8,35 @@
 # isAnagramMatch("bob", "rob") => false
 # isAnagramMatch("tape", "tap") => false
 
+# Without using return sorted(str1) == sorted(str2)
+
 def isAnagramMatch(str1, str2):
+    # Edge case if the strings are diff lengths
     if len(str1) != len(str2):
         return False
-    letterFrequencyMap = {}
-    for letter in range(0, len(str1)):
-        if str1[letter] in letterFrequencyMap.keys():
-            letterFrequencyMap[str1[letter]] += 1
+
+    # Build a hash map for each string with key/value pairs consisting of the letter and it's frequency in the string
+    map1, map2 = {}, {}
+
+    # Hashmap for first string
+    for letter in range(0,len(str1)):
+        l = str1[letter]
+        if l in map1.keys():
+            map1[l] += 1
         else:
-            letterFrequencyMap[str1[letter]] = 1
-    for letter in range(0, len(str2)):
-        if str2[letter] in letterFrequencyMap.keys() and letterFrequencyMap[str2[letter]] > 0:
-            letterFrequencyMap[str2[letter]] -= 1
+            map1[l] = 1
+    
+    # Hashmap for second string
+    for letter in range(0,len(str2)):
+        l = str2[letter]
+        if l in map2.keys():
+            map2[l] += 1
         else:
-            return False
-    return True
+            map2[l] = 1
+    
+    # The two strings are anagrams if the corresponding maps are identical
+    return map1 == map2
+    
 
 
 print(isAnagramMatch("melon","lemon"))
