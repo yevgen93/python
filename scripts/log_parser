@@ -41,7 +41,7 @@ def write_csv(counter):
         header = ['IP', 'Frequency']
         writer.writerow(header)
 
-        # write the tuple of IP : counter to each line
+        # write the tuple of (IP : counter) to each line
         for item in counter:
             writer.writerow( (item, counter[item]) )
 
