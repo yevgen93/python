@@ -1,0 +1,49 @@
+# https://www.youtube.com/watch?v=4DdueeIE8Rs
+# sample log file https://pastebin.com/DcTi2mp6
+
+
+import re, csv
+
+# 1. Open a log file, read its content, and find all IP addresses
+def reader(filename):
+    with open(filename) as f:
+        # store the contents of the file in log
+        log = f.read()
+
+        # \d represents a digit 0-9
+        # r interpret raw
+        regexp = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
+
+        # store all regex matches for IPs in a list
+        ips = re.findall(regexp, log)
+
+        return ips
+
+# 2. Count requests from IPs
+def count(ips):
+    d = {}
+    for ip in ips:
+        if ip not in d.keys():
+            d[ip] = 1
+        else:
+            d[ip] += 1
+    return d
+
+# 3. Write data to a csv file
+def write_csv(counter):
+
+    # create new file, w for WRITE
+    with open('output.csv', 'w') as csvfile:
+        # set variable to write to output file
+        writer = csv.writer(csvfile)
+
+        # add header with 2 columns
+        header = ['IP', 'Frequency']
+        writer.writerow(header)
+
+        # write the tuple of IP : counter to each line
+        for item in counter:
+            writer.writerow( (item, counter[item]) )
+
+
+write_csv(count(reader('log')))
