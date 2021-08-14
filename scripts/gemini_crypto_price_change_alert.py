@@ -1,4 +1,3 @@
-
 # https://docs.gemini.com/rest-api/#symbols
 # https://docs.gemini.com/rest-api/#price-feed
 
@@ -15,7 +14,7 @@ symbols = requests.get(base_url + "/symbols").json()
 
 # make sure the argument is valid
 if currency.lower() not in symbols:
-    print("Invalid currency symbol. Please try again...")
+    print("Invalid currency symbol. Please select from:",symbols)
     sys.exit()
 
 # get prices JSON
@@ -35,4 +34,21 @@ for block in prices:
 
         # Check if the current price has changed in the past 24 hours by more than 1% from the price at the start of the period
         if float(block['percentChange24h']) > .01:
-            print(datetime.now(),"- AlertingTool - ERROR - ******   Price Change")
+            print(datetime.now(),"- AlertingTool - ALERT - ******   The price of",currency,"has changed more than 1% in the past 24 hours!")
+
+
+# Instructions for running the script
+# python apiAlerts.py LTCUSD (handles lower/upper cases)
+
+# Dependencies
+# python version = 3.7.5
+
+# Further improvements
+# Implement alert inputs as CLI args
+# Leverage Gemini API to implement Price / Volume Deviation alerts
+
+# Other interesting checks you might implement to alert on market behaviour
+# Relevant market indicator changes like RSI, MACD
+
+# Total time spent
+# 2 hours (was trying to implement the CLI args parser / price deviation alert but didn't want to submit a half baked solution)
