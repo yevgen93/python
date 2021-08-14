@@ -21,7 +21,7 @@ if currency.lower() not in symbols:
 # get prices JSON
 prices = requests.get(base_url + "/pricefeed").json()
 
-# Check if the current price has changed in the past 24 hours by more than 1% from the price at the start of the period
+# find the price block that matches the currency argument
 for block in prices:
     if block['pair'] == currency.upper():
         print(datetime.now(),"- AlertingTool - INFO - Parsing args")
@@ -33,5 +33,6 @@ for block in prices:
         print(datetime.now(),"- AlertingTool - INFO - Last Price:",block['price'])
         print(datetime.now(),"- AlertingTool - INFO - Price change in past 24 hours:",block['percentChange24h'])
 
+        # Check if the current price has changed in the past 24 hours by more than 1% from the price at the start of the period
         if float(block['percentChange24h']) > .01:
             print(datetime.now(),"- AlertingTool - ERROR - ******   Price Change")
