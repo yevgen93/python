@@ -1,22 +1,22 @@
-# def removeDup(array):
-#     final = []
-#     for l in array:
-#         if l not in final:
-#             final.append(l)
-#     return final
+# Allocate new space
+def removeDup(arr):
+    result = []
+    for num in arr:
+        if num not in result:
+            result.append(num)
+    return result
 
-# print(removeDup([1,1,2,2,3,3,4,4,5,5]))
+# Return the de-duped array in place without allocating new space
+# (Assume the input array is sorted)
 
-# assume the input array is sorted
-# return the de-duped array in place
-
-def removeDup(array):
+def removeDupInPlace(arr):
     i = 0
-    while i<len(array)-1:
-        if array[i]==array[i+1]:
-            array.pop(i)
+    while i < len(arr)-1:
+        if arr[i] == arr[i+1]:
+            arr.pop(i)
         else:
-            i+=1
-    return array
+            i += 1
+    return arr
 
-print(removeDup([1,1,2,2,3,3,4,4,5,5,6]))
+print(removeDup([1,1,2,2,3,3,4,4,5,5]))
+print(removeDupInPlace([1,1,2,2,3,3,4,4,5,5]))
