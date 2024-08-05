@@ -11,13 +11,13 @@ def isAnagramMatch(str1, str2):
     map1, map2 = {}, {}
 
     for letter in str1:
-        if letter not in map1.keys():
+        if letter not in map1:
             map1[letter] = 1
         else:
             map1[letter] += 1
 
     for letter in str2:
-        if letter not in map2.keys():
+        if letter not in map2:
             map2[letter] = 1
         else:
             map2[letter] += 1
