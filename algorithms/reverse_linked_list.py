@@ -20,8 +20,8 @@ def reverseList(head: ListNode):
     curr = head
     
     while curr:
-        next_node = curr.next # Store next node
+        tmp = curr.next      # Store next node
         curr.next = prev      # Reverse the link
         prev = curr           # Move prev forward
-        curr = next_node      # Move current forward
+        curr = tmp            # Move current forward
     return prev  
