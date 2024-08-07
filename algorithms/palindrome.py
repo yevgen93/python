@@ -17,3 +17,11 @@ def palindrome(num):
 print(palindrome(1221))
 print(palindrome(123))
 print(palindrome(123321))
+
+
+def isPalindrome(str):
+    newStr = ''
+    for c in str:
+        if c.isalnum():
+            newStr += c.lower()
+    return newStr == newStr[::-1]
