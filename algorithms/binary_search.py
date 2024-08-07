@@ -2,21 +2,22 @@
 # Return the index of the target value found, or -1 if not found
 
 def binary_search(array, target):
-    left_index = 0
-    right_index = len(array)-1
+    left = 0
+    right = len(nums) - 1
 
-    while left_index <= right_index:
-        middle_index = (left_index + right_index) // 2
+    while left <= right:
+        middle = (left + right) // 2
 
-        if array[middle_index] == target:
-            return middle_index
-        
-        if array[middle_index] < target:
-            left_index = middle_index + 1
+        if nums[middle] > target:
+            right = middle - 1
+            
+        elif nums[middle] < target:
+            left = middle + 1
+            
         else:
-            right_index = middle_index - 1
-    
-    return -1 # Target not found
+            return middle
+            
+    return -1
 
 sorted_array = [1,3,5,7,9,11,13]
 target_value = 7
